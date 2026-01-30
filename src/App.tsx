@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import HomePageItems from "./HomePageItems";
+import Filters from "./Filters";
 
 function App() {
   const [cols, setCols] = useState(3);
+
+  const [filters, setFilters] = useState({});
   
   return (
     <div className="bg-blue-50">
@@ -11,12 +14,12 @@ function App() {
         SHOPPING APP
       </h1>
       <div className="flex">
-        {/* <Filters
+        <Filters
           cols={cols}
           setCols={setCols}
           filters={filters}
           setFilters={setFilters}
-        /> */}
+        />
         {/* <HomePageItems cols={cols} filters={filters} /> */}
         <HomePageItems cols={cols} />
       </div>
