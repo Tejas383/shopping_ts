@@ -1,70 +1,73 @@
 "use client";
 
-// import { useState } from "react";
+import { useState } from "react";
 import productsData from "./constants/products.json";
 import CardComponent from "./CardComponent.tsx";
-// import {
-//   Pagination,
-//   PaginationContent,
-//   PaginationItem,
-//   PaginationLink,
-//   PaginationNext,
-//   PaginationPrevious,
-// } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 // import { AnimatePresence, motion } from "framer-motion";
 // import { HOMEPAGE_TOTAL_ITEMS_PER_PAGE as itemsPerPage } from "../constants/home.ts";
 
 const Cards = ({ cols }) => {
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const [selectedCard, setSelectedCard] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  //   const [selectedCard, setSelectedCard] = useState(null);
 
-//   const filteredData = productsData.filter((product) => {
-//     for (let filterType in filters) {
-//       const filterValues = filters[filterType];
-//       if (filterValues.length === 0) continue;
+  //   const filteredData = productsData.filter((product) => {
+  //     for (let filterType in filters) {
+  //       const filterValues = filters[filterType];
+  //       if (filterValues.length === 0) continue;
 
-//       let productField = product[filterType];
+  //       let productField = product[filterType];
 
-//       let matches = false;
+  //       let matches = false;
 
-//       if (Array.isArray(productField)) {
-//         matches = filterValues.some((val) =>
-//           productField.some((pVal) => pVal.toLowerCase() === val.toLowerCase()),
-//         );
-//       } else {
-//         matches = filterValues.some(
-//           (val) => val.toLowerCase() === productField?.toString().toLowerCase(),
-//         );
-//       }
+  //       if (Array.isArray(productField)) {
+  //         matches = filterValues.some((val) =>
+  //           productField.some((pVal) => pVal.toLowerCase() === val.toLowerCase()),
+  //         );
+  //       } else {
+  //         matches = filterValues.some(
+  //           (val) => val.toLowerCase() === productField?.toString().toLowerCase(),
+  //         );
+  //       }
 
-//       if (!matches) return false;
-//     }
+  //       if (!matches) return false;
+  //     }
 
-//     return true;
-//   });
+  //     return true;
+  //   });
 
-// const filteredData = productsData
+  const filteredData = productsData;
 
-//   const totalItems = filteredData.length;
+  const itemsPerPage = 10;
 
-//   const numberOfPages = Math.ceil(totalItems / itemsPerPage);
+  const totalItems = filteredData.length;
 
-//   const startIndex = (currentPage - 1) * itemsPerPage;
-//   const endIndex = startIndex + itemsPerPage;
+  const numberOfPages = Math.ceil(totalItems / itemsPerPage);
 
-//   const visibleItems = filteredData.slice(startIndex, endIndex);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
-//   const zoomCard = (item) => {
-//     console.log(item.id);
-//     setSelectedCard(item);
-//   };
+  const visibleItems = filteredData.slice(startIndex, endIndex);
 
-const visibleItems = productsData;
+  //   const zoomCard = (item) => {
+  //     console.log(item.id);
+  //     setSelectedCard(item);
+  //   };
+
+  // const visibleItems = productsData;
+  // const numberOfPages = 3;
 
   return (
     <div className="w-full">
       {/* Pagination */}
-      {/* <Pagination className="mt-3">
+      <Pagination className="mt-3">
         <PaginationContent className="">
           <PaginationItem>
             <PaginationPrevious
@@ -94,7 +97,7 @@ const visibleItems = productsData;
             />
           </PaginationItem>
         </PaginationContent>
-      </Pagination> */}
+      </Pagination>
 
       <div
         className="grid p-3 gap-3 w-full"
@@ -107,7 +110,7 @@ const visibleItems = productsData;
             cols={cols}
             // onClick={() => zoomCard(item)}
           />
-        // <p key={index}>{item.name}</p>
+          // <p key={index}>{item.name}</p>
         ))}
       </div>
 
