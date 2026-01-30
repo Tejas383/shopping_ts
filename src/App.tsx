@@ -1,7 +1,10 @@
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import HomePageItems from "./HomePageItems";
 
 function App() {
-
+  const [cols, setCols] = useState(3);
+  
   return (
     <div className="bg-blue-50">
       <h1 className="font-bold text-3xl bg-gradient-to-r from-purple-300 via-purple-500 to-purple-300 text-white p-5 text-center">
@@ -13,11 +16,12 @@ function App() {
           setCols={setCols}
           filters={filters}
           setFilters={setFilters}
-        />
-        <Cards cols={cols} filters={filters} /> */}
+        /> */}
+        {/* <HomePageItems cols={cols} filters={filters} /> */}
+        <HomePageItems cols={cols} />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
