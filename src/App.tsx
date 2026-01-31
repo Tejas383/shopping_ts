@@ -20,8 +20,7 @@ function App() {
           filters={filters}
           setFilters={setFilters}
         />
-        {/* <HomePageItems cols={cols} filters={filters} /> */}
-        <HomePageItems cols={cols} />
+        <HomePageItems cols={cols} filters={filters} />
       </div>
     </div>
   );

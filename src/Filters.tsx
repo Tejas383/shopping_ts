@@ -1,126 +1,119 @@
-// import {
-//   Form,
-//   FormControl,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-// import FilterType from "./FilterType.jsx";
+import FilterType from "./FilterType.jsx";
 
 const Filters = ({ cols, setCols, filters, setFilters }) => {
-//   console.log(filters);
+  const categories = [
+    "Mobile Phone",
+    "Laptop",
+    "HeadPhones",
+    "Tablet",
+    "Smart Home",
+    "Wearable",
+    "Accessories",
+    "Storage",
+    "Camera",
+    "Television",
+    "Home Appliance",
+  ].sort();
 
-//   const applyFilters = (e) => {
-//     console.log(filters);
-//     e.preventDefault();
-//   };
+  const brands = [
+    "Apple",
+    "Samsung",
+    "Google",
+    "OnePlus",
+    "Xiaomi",
+    "Dell",
+    "HP",
+    "Lenovo",
+    "Asus",
+    "Sony",
+    "Bose",
+    "JBL",
+    "Nothing",
+    "Amazon",
+    "Logitech",
+    "Keychron",
+    "SanDisk",
+    "Canon",
+    "LG",
+    "Dyson",
+    "Philips",
+  ].sort();
 
-//   const categories = [
-//     "Mobile Phone",
-//     "Laptop",
-//     "HeadPhones",
-//     "Tablet",
-//     "Smart Home",
-//     "Wearable",
-//     "Accessories",
-//     "Storage",
-//     "Camera",
-//     "Television",
-//     "Home Appliance",
-//   ];
+  const colors = [
+    "Pink",
+    "Black",
+    "Silver",
+    "Blue",
+    "Yellow",
+    "White",
+    "Green",
+    "Gray",
+    "Transparent",
+    "Purple",
+    "Graphite",
+    "Midnight",
+  ].sort();
 
-//   const brands = [
-//     "Apple",
-//     "Samsung",
-//     "Google",
-//     "OnePlus",
-//     "Xiaomi",
-//     "Dell",
-//     "HP",
-//     "Lenovo",
-//     "Asus",
-//     "Sony",
-//     "Bose",
-//     "JBL",
-//     "Nothing",
-//     "Amazon",
-//     "Logitech",
-//     "Keychron",
-//     "SanDisk",
-//     "Canon",
-//     "LG",
-//     "Dyson",
-//     "Philips",
-//   ];
+  const connectivity = ["5G", "WiFi", "Bluetooth", "USB-C", "USB-A"].sort();
 
-//   const colors = [
-//     "Pink",
-//     "Black",
-//     "Silver",
-//     "Blue",
-//     "Yellow",
-//     "White",
-//     "Green",
-//     "Gray",
-//     "Transparent",
-//     "Purple",
-//     "Graphite",
-//     "Midnight",
-//   ];
+  const releaseYear = ["2024", "2023", "2022", "2021", "2020"].sort();
 
-//   const connectivity = ["5G", "WiFi", "Bluetooth", "USB-C", "USB-A"];
+  const tags = [
+    "smartphone",
+    "ios",
+    "android",
+    "flagship",
+    "camera",
+    "fast-charge",
+    "budget",
+    "ultrabook",
+    "windows",
+    "midrange",
+    "business",
+    "gaming",
+    "noise-cancelling",
+    "premium",
+    "true-wireless",
+    "design",
+    "tablet",
+    "android-tablet",
+    "voice-assistant",
+    "smartwatch",
+    "mouse",
+    "keyboard",
+    "mechanical",
+    "portable-ssd",
+    "usb",
+    "mirrorless",
+    "vlogging",
+    "smart-tv",
+    "oled",
+    "vacuum",
+    "kitchen",
+  ].sort();
 
-//   const releaseYear = ["2024", "2023", "2022", "2021", "2020"];
+  const handleCheckboxChange = (filterType, value, checked) => {
+    setFilters((prev) => {
+      const current = prev[filterType] || [];
 
-//   const tags = [
-//     "smartphone",
-//     "ios",
-//     "android",
-//     "flagship",
-//     "camera",
-//     "fast-charge",
-//     "budget",
-//     "ultrabook",
-//     "windows",
-//     "midrange",
-//     "business",
-//     "gaming",
-//     "noise-cancelling",
-//     "premium",
-//     "true-wireless",
-//     "design",
-//     "tablet",
-//     "android-tablet",
-//     "voice-assistant",
-//     "smartwatch",
-//     "mouse",
-//     "keyboard",
-//     "mechanical",
-//     "portable-ssd",
-//     "usb",
-//     "mirrorless",
-//     "vlogging",
-//     "smart-tv",
-//     "oled",
-//     "vacuum",
-//     "kitchen",
-//   ];
-
-//   const handleCheckboxChange = (filterType, value, checked) => {
-//     setFilters((prev) => {
-//       const current = prev[filterType] || [];
-
-//       return {
-//         ...prev,
-//         [filterType]: checked
-//           ? [...current, value]
-//           : current.filter((v) => v !== value),
-//       };
-//     });
-//   };
+      return {
+        ...prev,
+        [filterType]: checked
+          ? [...current, value]
+          : current.filter((v) => v !== value),
+      };
+    });
+  };
 
   return (
     <div className="w-[20%] border my-3 ml-2 rounded-xl p-3 shadow-lg shadow-purple-300/30 bg-white">
@@ -142,8 +135,8 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
           FILTERS
         </h2>
 
-        {/* <Form>
-          <form onSubmit={applyFilters} className="w-2/3 space-y-2 w-full py-3">
+        <Form>
+          <form className="w-2/3 space-y-2 w-full py-3">
             <FilterType
               type="brand"
               label="Brands"
@@ -181,7 +174,7 @@ const Filters = ({ cols, setCols, filters, setFilters }) => {
               handleCheckboxChange={handleCheckboxChange}
             />
           </form>
-        </Form> */}
+        </Form>
       </div>
     </div>
   );
