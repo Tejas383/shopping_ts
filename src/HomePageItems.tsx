@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useState } from "react";
 import productsData from "./constants/products.json";
@@ -11,12 +11,13 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-// import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+
 // import { HOMEPAGE_TOTAL_ITEMS_PER_PAGE as itemsPerPage } from "../constants/home.ts";
 
 const Cards = ({ cols }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  //   const [selectedCard, setSelectedCard] = useState(null);
+    const [selectedCard, setSelectedCard] = useState(null);
 
   //   const filteredData = productsData.filter((product) => {
   //     for (let filterType in filters) {
@@ -56,10 +57,10 @@ const Cards = ({ cols }) => {
 
   const visibleItems = filteredData.slice(startIndex, endIndex);
 
-  //   const zoomCard = (item) => {
-  //     console.log(item.id);
-  //     setSelectedCard(item);
-  //   };
+    const zoomCard = (item) => {
+      console.log(item.id);
+      setSelectedCard(item);
+    };
 
   // const visibleItems = productsData;
   // const numberOfPages = 3;
@@ -108,13 +109,12 @@ const Cards = ({ cols }) => {
             key={index}
             item={item}
             cols={cols}
-            // onClick={() => zoomCard(item)}
+            onClick={() => zoomCard(item)}
           />
-          // <p key={index}>{item.name}</p>
         ))}
       </div>
 
-      {/* <AnimatePresence>
+      <AnimatePresence>
         {selectedCard && (
           <motion.div
             className="fixed inset-0 flex items-center justify-center bg-black/60"
@@ -128,7 +128,7 @@ const Cards = ({ cols }) => {
               className="bg-white p-6 rounded-lg max-w-4xl w-full"
               initial={{ scale: 0.1 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 10 }}
+              exit={{ scale: 0.1 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -142,7 +142,7 @@ const Cards = ({ cols }) => {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
     </div>
   );
 };
