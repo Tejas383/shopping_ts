@@ -12,8 +12,8 @@ import {
 } from "./components/ui/card";
 import { Button } from "./components/ui/button";
 
-// import Rating from "@mui/material/Rating";
-// import Stack from "@mui/material/Stack";
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 const CardComponent = ({ item, cols, onClick }) => {
   const {
@@ -76,14 +76,14 @@ const CardComponent = ({ item, cols, onClick }) => {
         </div>
         <div className="flex items-center justify-center">
           <span className="font-semibold">Rating: </span>
-          {/* <Stack spacing={1}>
+          <Stack spacing={1}>
             <Rating
               name="half-rating-read"
               defaultValue={rating}
               precision={0.5}
               readOnly
             />
-          </Stack> */}
+          </Stack>
         </div>
         <span>
           <span className="font-semibold">Color: </span>
