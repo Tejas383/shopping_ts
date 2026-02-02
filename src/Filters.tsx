@@ -1,107 +1,16 @@
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
 import FilterType from "./FilterType.jsx";
 
+import categories from "./constants/categories";
+import brands from "./constants/brands";
+import colors from "./constants/colors";
+import connectivity from "./constants/connectivity";
+import releaseYear from "./constants/releaseYear";
+import tags from "./constants/tags";
+
 const Filters = ({ cols, setCols, filters, setFilters }) => {
-  const categories = [
-    "Mobile Phone",
-    "Laptop",
-    "HeadPhones",
-    "Tablet",
-    "Smart Home",
-    "Wearable",
-    "Accessories",
-    "Storage",
-    "Camera",
-    "Television",
-    "Home Appliance",
-  ].sort();
-
-  const brands = [
-    "Apple",
-    "Samsung",
-    "Google",
-    "OnePlus",
-    "Xiaomi",
-    "Dell",
-    "HP",
-    "Lenovo",
-    "Asus",
-    "Sony",
-    "Bose",
-    "JBL",
-    "Nothing",
-    "Amazon",
-    "Logitech",
-    "Keychron",
-    "SanDisk",
-    "Canon",
-    "LG",
-    "Dyson",
-    "Philips",
-  ].sort();
-
-  const colors = [
-    "Pink",
-    "Black",
-    "Silver",
-    "Blue",
-    "Yellow",
-    "White",
-    "Green",
-    "Gray",
-    "Transparent",
-    "Purple",
-    "Graphite",
-    "Midnight",
-  ].sort();
-
-  const connectivity = ["5G", "WiFi", "Bluetooth", "USB-C", "USB-A"].sort();
-
-  const releaseYear = ["2024", "2023", "2022", "2021", "2020"].sort();
-
-  const tags = [
-    "smartphone",
-    "ios",
-    "android",
-    "flagship",
-    "camera",
-    "fast-charge",
-    "budget",
-    "ultrabook",
-    "windows",
-    "midrange",
-    "business",
-    "gaming",
-    "noise-cancelling",
-    "premium",
-    "true-wireless",
-    "design",
-    "tablet",
-    "android-tablet",
-    "voice-assistant",
-    "smartwatch",
-    "mouse",
-    "keyboard",
-    "mechanical",
-    "portable-ssd",
-    "usb",
-    "mirrorless",
-    "vlogging",
-    "smart-tv",
-    "oled",
-    "vacuum",
-    "kitchen",
-  ].sort();
-
   const handleCheckboxChange = (filterType, value, checked) => {
     setFilters((prev) => {
       const current = prev[filterType] || [];

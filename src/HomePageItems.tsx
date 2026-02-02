@@ -17,34 +17,32 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Cards = ({ cols, filters }) => {
   const [currentPage, setCurrentPage] = useState(1);
-    const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
 
-    const filteredData = productsData.filter((product) => {
-      for (let filterType in filters) {
-        const filterValues = filters[filterType];
-        if (filterValues.length === 0) continue;
+  const filteredData = productsData.filter((product) => {
+    for (let filterType in filters) {
+      const filterValues = filters[filterType];
+      if (filterValues.length === 0) continue;
 
-        let productField = product[filterType];
+      let productField = product[filterType];
 
-        let matches = false;
+      let matches = false;
 
-        if (Array.isArray(productField)) {
-          matches = filterValues.some((val) =>
-            productField.some((pVal) => pVal.toLowerCase() === val.toLowerCase()),
-          );
-        } else {
-          matches = filterValues.some(
-            (val) => val.toLowerCase() === productField?.toString().toLowerCase(),
-          );
-        }
-
-        if (!matches) return false;
+      if (Array.isArray(productField)) {
+        matches = filterValues.some((val) =>
+          productField.some((pVal) => pVal.toLowerCase() === val.toLowerCase()),
+        );
+      } else {
+        matches = filterValues.some(
+          (val) => val.toLowerCase() === productField?.toString().toLowerCase(),
+        );
       }
 
-      return true;
-    });
+      if (!matches) return false;
+    }
 
-//   const filteredData = productsData;
+    return true;
+  });
 
   const itemsPerPage = 10;
 
@@ -57,13 +55,10 @@ const Cards = ({ cols, filters }) => {
 
   const visibleItems = filteredData.slice(startIndex, endIndex);
 
-    const zoomCard = (item) => {
-      console.log(item.id);
-      setSelectedCard(item);
-    };
-
-  // const visibleItems = productsData;
-  // const numberOfPages = 3;
+  const zoomCard = (item) => {
+    console.log(item.id);
+    setSelectedCard(item);
+  };
 
   return (
     <div className="w-full">

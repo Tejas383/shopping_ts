@@ -1,0 +1,25 @@
+const brands = [
+  "Apple",
+  "Samsung",
+  "Google",
+  "OnePlus",
+  "Xiaomi",
+  "Dell",
+  "HP",
+  "Lenovo",
+  "Asus",
+  "Sony",
+  "Bose",
+  "JBL",
+  "Nothing",
+  "Amazon",
+  "Logitech",
+  "Keychron",
+  "SanDisk",
+  "Canon",
+  "LG",
+  "Dyson",
+  "Philips",
+].sort();
+
+export default brands;
